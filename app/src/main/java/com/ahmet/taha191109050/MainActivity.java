@@ -203,7 +203,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(Ekrandaki.equals("0")){
            EkranaYazilacak = "";
-           Ekrandaki = "";
+           if (Ekrandaki.equals("0") && sayi == 0){
+               EkranaYazilacak = "";
+           } else {
+               if (Ekrandaki.equals("0")){
+                   Ekrandaki = "";
+               }
+               EkranaYazilacak = String.valueOf(sayi);
+           }
         }
         else if(
                 hesapEkrani.getText().toString().equals("+") ||
@@ -211,10 +218,13 @@ public class MainActivity extends AppCompatActivity {
                         hesapEkrani.getText().toString().equals("/") ||
                         hesapEkrani.getText().toString().equals("-"))
         {
-            EkranaYazilacak = "";
+            Ekrandaki="";
+            EkranaYazilacak = String.valueOf(sayi);
+        } else {
+            EkranaYazilacak = String.valueOf(sayi);
         }
 
-        EkranaYazilacak = String.valueOf(sayi);
+
         hesapEkrani.setText(Ekrandaki + EkranaYazilacak);
     }
 
